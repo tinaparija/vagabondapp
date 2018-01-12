@@ -2,6 +2,9 @@
   <div>
     <h3><%= city.name %></h3>
     <img  src="<%= city.image %>"></img>
+    <% if current_user %>
+      <%= button_to "Post", create_posts_path(city) %>
+    <% end %>
   </div>
   <br>
 <% end %>
