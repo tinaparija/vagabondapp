@@ -1,0 +1,8 @@
+<div>
+  <%= @user.first_name %> <br>
+  <%= @user.last_name %> <br>
+  <%= @user.home_city %> <br>
+  <%= @user.created_at.strftime("%d %b. %Y") %> <br>
+  <p><%= link_to "edit this user", edit_user_path(@user) %></p>
+  <p><%= link_to "delete this user", user_path(@user), method: :delete %></p>
+</div>
