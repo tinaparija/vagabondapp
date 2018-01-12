@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 	patch '/users/:id', to: 'users#update'
 	delete '/users/:id', to: 'users#destroy'
 
+	get '/cities', to: 'cities#index'
+
+	get '/users/:id/posts', to: 'users#posts'
+	get '/posts/:id', to: 'posts#show', as: 'post'
+
 	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'
 	post '/sessions', to: 'sessions#create'
