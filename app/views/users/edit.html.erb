@@ -1,15 +1,16 @@
-<h1>Edit User</h1>
-<hr>
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
-  </div>
-  <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-  </div>
-  <div>
-    <%= f.text_field :home_city, placeholder: "Current City" %>
-  </div>
-  <%= f.submit "Update Fields" %>
-<% end %>
-
+<div style="text-align: center;">  
+ <h2>Edit User</h2>
+ <br>
+ <%= form_for @user do |f| %>
+   <div>
+     <%= f.text_field :first_name, placeholder: "First Name" %>
+   </div><br>
+   <div>
+     <%= f.text_field :last_name, placeholder: "Last Name" %>
+   </div><br>
+   <div>
+     <%= f.text_field :home_city, placeholder: "Current City" %>
+   </div><br>
+   <%= f.submit "Update Fields" %>
+ <% end %>
+</div>

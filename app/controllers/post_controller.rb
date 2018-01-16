@@ -11,10 +11,38 @@ class PostController < ApplicationController
 		@user = User.find_by(id: user_id)
 	end
 
+	def edit 
+        post_id = params[:id]
+        @post = Post.find_by(id: post_id)
+    end 
+
+    def update 
+        post_id = params[:id]
+        @post = Post.find_by(id: post_id)
+        if @post.update(post_params)
+            redirect_to create_post_path(@post)
+        else 
+            @post_id = params[:id]
+            @post = Post.find_by(id: post_id)
+        end 
+    end
+    
+	def new 
+		@post = Post.new 
+		city_id = params[:city_id]
+		@city = City.find_by(id: city_id)
+	end
+
 	def create 
 		if current_user.id === params[:post][:user_id]
-			Post.create(city_id: params[:post][:city_id], user_id: params[:post][:user_id])
-			redirect_to cities_path
+			city = City.find(params[:city_id])
+			new_post = Post.new(post_params)
+			if  new_post.save
+				City.posts << new_post 
+				redirect_to city_path 
+			else
+			end 
+				
 		end
 	end
 

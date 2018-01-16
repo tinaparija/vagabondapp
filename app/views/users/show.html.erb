@@ -1,18 +1,16 @@
 
-  
 <div class="floatleft">
-  <p>First Name: <%= @user.first_name.capitalize %></p>
-  <p>Last Name: <%= @user.last_name.capitalize %></p>
-  <p>Current City: <%= @user.home_city.capitalize %></p>
-  <p>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></p>
+
+<ul>
+  <li>First Name: <%= @user.first_name.capitalize %></li>
+  <li>Last Name: <%= @user.last_name.capitalize %></li>
+  <li>Current City: <%= @user.home_city.capitalize %></li>
+  <li>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></li>
+  <li id ="edit_user"><%= link_to "edit this user", edit_user_path(@user) %></li>
+</ul>
+  
 </div>
 
-<!-- <div>
-	<div class="wrap">
-    <div class="floatleft"></div>
-    <div class="floatright"></div>
-    <div style="clear: both;"> -->
-<!-- </div> -->
 <div class="floatright">
   	<h2 >Posts</h2>
   	
@@ -22,7 +20,5 @@
   	
   </div>
 
-  <p><%= link_to "edit this user", edit_user_path(@user) %></p>
-  <p><%= link_to "delete this user", user_path(@user), method: :delete %></p>
 
 

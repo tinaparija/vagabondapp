@@ -1,0 +1,10 @@
+
+<%= form_for [@city, @post], url: create_posts_path do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_field :content, placeholder: "Content" %>
+  </div><br>
+  <%= f.submit "Add Post" %>
+<% end %>

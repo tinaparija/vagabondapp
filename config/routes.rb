@@ -9,10 +9,15 @@ Rails.application.routes.draw do
 	delete '/users/:id', to: 'users#destroy'
 
 	get '/cities', to: 'cities#index'
+	get '/cities/:id', to: 'cities#show', as: 'city'
 
-	post '/post', to: 'post#create', as: 'create_posts'
+	get 'cities/:id/post/new', to: 'post#new', as: 'new_post'
+	post '/post/new', to: 'post#create', as: 'create_posts'
 	get '/users/:id/post', to: 'users#posts'
 	get '/post/:id', to: 'post#show', as: 'show_post'
+	get '/post/:id/edit', to: 'post#edit', as: 'edit_post'
+	patch '/post/:id', to: 'post#update', as: 'update_post'
+
 
 	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'
