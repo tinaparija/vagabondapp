@@ -1,0 +1,13 @@
+<div style="text-align: center;">  
+ <h2>Edit post</h2>
+ <br>
+ <%= form_tag @posts do %>
+   <div>
+     <%= text_field :title, "title" %>
+   </div><br>
+   <div>
+     <%= text_field :content, placeholder: "content" %>
+   </div><br>
+   <%= submit_tag "Submit Fields" %>
+ <% end %>
+</div>

@@ -11,6 +11,22 @@ class PostController < ApplicationController
 		@user = User.find_by(id: user_id)
 	end
 
+	def edit 
+        post_id = params[:id]
+        @post = Post.find_by(id: post_id)
+    end 
+
+    def update 
+        post_id = params[:id]
+        @post = Post.find_by(id: post_id)
+        if @post.update(post_params)
+            redirect_to create_post_path(@post)
+        else 
+            @post_id = params[:id]
+            @post = Post.find_by(id: post_id)
+        end 
+    end
+    
 	def new 
 		@post = Post.new 
 		city_id = params[:city_id]
