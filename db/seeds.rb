@@ -26,12 +26,8 @@ end
 users = User.create(users_data)
 
 #cities 
-cities_data = []
-6.times do
-  cities_data << {
-    name: FFaker::Address.city, 
-  }
-end
+cities_data = [{name:"San Francisco", image:"https://cdn.vox-cdn.com/thumbor/nkA0OYFOejA96gXee5DQG9RZVFk=/0x0:1368x912/1200x800/filters:focal(575x347:793x565)/cdn.vox-cdn.com/uploads/chorus_image/image/55144679/Pius_Lee.0.jpg"}, 
+  {name:"Atlanta", image: "https://www.ntsecurityllc.com/wp-content/uploads/2013/09/city-of-atlanta.png" },{name:"New York", image:"https://cdn.getyourguide.com/img/location_img-59-1224772867-148.jpg"},{name:"Chicago", image:"http://www.billslater.com/cloudgate/cloudgate_blackhawks_2013_0625_.jpg"}]
 cities = City.create(cities_data)
 
 #posts

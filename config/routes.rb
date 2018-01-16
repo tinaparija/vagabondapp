@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	delete '/users/:id', to: 'users#destroy'
 
 	get '/cities', to: 'cities#index'
+	get '/cities/:id', to: 'cities#show', as: 'city'
 
 	post '/post', to: 'post#create', as: 'create_posts'
 	get '/users/:id/post', to: 'users#posts'
