@@ -1,3 +1,40 @@
 // Place all the styles related to the post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+.floatleft {
+   float:left;
+   width: 30%;
+   height: 400px;
+   text-align:left;
+}
+
+body {
+   background-color: white;
+}
+
+.floatright {
+text-align:left;
+padding-left:50px;
+float: right;
+   height: 400px;
+   width: 70%;
+}
+
+#edit_post a{
+    color: blue;
+    font-weight: bold; 
+}
+
+
+#delete_post a{
+    color: red;
+    font-weight: bold; 
+}
+
+
+

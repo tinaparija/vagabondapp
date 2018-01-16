@@ -20,7 +20,7 @@ class PostController < ApplicationController
         post_id = params[:id]
         @post = Post.find_by(id: post_id)
         if @post.update(post_params)
-            redirect_to create_post_path(@post)
+            redirect_to show_post_path(@post)
         else 
             @post_id = params[:id]
             @post = Post.find_by(id: post_id)
@@ -44,6 +44,20 @@ class PostController < ApplicationController
 			end 
 				
 		end
+	end
+
+	def destroy
+		post_id = params[:id]
+		post = Post.find_by(id: post_id)
+		post.delete
+		
+		user_id = params[:user_id]
+		user = User.find_by(id: user_id)
+		redirect_to cities_path
+	end
+
+	def post_params
+		params.require(:post).permit(:title, :content)
 	end
 
 end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	get '/post/:id', to: 'post#show', as: 'show_post'
 	get '/post/:id/edit', to: 'post#edit', as: 'edit_post'
 	patch '/post/:id', to: 'post#update', as: 'update_post'
+	delete '/post/:id', to: 'post#destroy', as: 'delete_post'
 
 
 	get '/login', to: 'sessions#new'

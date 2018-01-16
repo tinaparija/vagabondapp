@@ -2,21 +2,21 @@
 <div class="floatleft">
 
 <ul>
-  <li>First Name: <%= @user.first_name.capitalize %></li>
-  <li>Last Name: <%= @user.last_name.capitalize %></li>
+  <h2>Profile</h2><br>
+  <li>Name: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></li>
   <li>Current City: <%= @user.home_city.capitalize %></li>
-  <li>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></li>
-  <li id ="edit_user"><%= link_to "edit this user", edit_user_path(@user) %></li>
+  <li>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></li><br>
+  <li id ="edit_user"><%= link_to "Edit this user", edit_user_path(@user) %></li>
 </ul>
   
 </div>
 
 <div class="floatright">
-  	<h2 >Posts</h2>
-  	
-	<% @user.posts.each do |post| %>
-	<p>Post Title: <%= link_to post.title.capitalize, show_post_path(post) %></p> 
-	 <% end %>
+  <h2 >Posts</h2><br>
+	<p><% @user.posts.each do |post| %></p>
+	<p>Title: <%= link_to post.title.capitalize, show_post_path(post) %></p>
+  <p>Content: <%= link_to post.content.capitalize, show_post_path(post) %></p>  
+	<% end %>
   	
   </div>
 

@@ -1,5 +1,18 @@
+<title>Post Page</title>
+<div class="floatleft">
+	<ul>
+	  <h2>Profile</h2><br>
+	  <li>Name: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></li>
+	  <li>Current City: <%= @user.home_city.capitalize %></li>
+	  <li>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></li><br>
+	</ul>
+</div>
 
- <p><%= @post.title.capitalize %></p> 
-<p><%= @post.content %></p>  
-<p>By <%= @user.first_name %></p>
-<button><%= link_to "Edit Post", edit_post_path(@post) %></button>
+<div class="floatright">
+	<h2><%= @post.title.capitalize %></h2><br>
+	<p><%= @post.content %></p><br>  
+	<p>By <%= @user.first_name %></p>  	
+	<%= link_to "Edit Post", edit_post_path(@post) %>
+	<%= link_to "Delete Post",  show_post_path(@post), method: :delete %>
+	
+</div>
