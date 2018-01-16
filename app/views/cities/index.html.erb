@@ -2,9 +2,6 @@
   <div>
     <h3 class ="city_headings"><%= link_to city.name, city_path(city) %></h3>
     <img  src="<%= city.image %>"></img>
-    <% if current_user %>
-      <%= button_to "Post", create_posts_path(city) %>
-    <% end %>
   </div>
   <br>
 <% end %>

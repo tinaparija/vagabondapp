@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 	get '/cities', to: 'cities#index'
 	get '/cities/:id', to: 'cities#show', as: 'city'
 
-	post '/post', to: 'post#create', as: 'create_posts'
+	get 'cities/:id/post/new', to: 'post#new', as: 'new_post'
+	post '/post/new', to: 'post#create', as: 'create_posts'
 	get '/users/:id/post', to: 'users#posts'
 	get '/post/:id', to: 'post#show', as: 'show_post'
+
 
 	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'

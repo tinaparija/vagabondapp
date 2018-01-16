@@ -1,7 +1,12 @@
 <h3 class ="show_heading"><%=@city.name %></h3>
-<img src="<%= @city.image %>"></img>
+ <% if current_user %>
+      <%= link_to "New Post", new_post_path %>
+    <% end %>
+    
+<br><img src="<%= @city.image %>"></img><br>
 
-<h2 >Posts</h2>
+<h4 >Posts</h4>
 	<% @city.posts.each do |post| %>
 	<p>Title: <%= link_to post.title.capitalize, show_post_path(post) %></p> 
+
 	 <% end %>
