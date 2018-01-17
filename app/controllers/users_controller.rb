@@ -8,9 +8,14 @@ class UsersController < ApplicationController
 	end 
 
 	def create
-		@user = User.create(user_params)
-		login (@user)
-		redirect_to @user
+		if user_params[:password].length >= 6
+			@user = User.create(user_params)
+			login (@user)
+			redirect_to @user
+		else
+			flash[:notice] = "incorrect password fields"
+			redirect_to new_user_path
+		end
 	end 
 
 	def show
