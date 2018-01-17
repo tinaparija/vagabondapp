@@ -11,6 +11,24 @@ class PostController < ApplicationController
 		@user = User.find_by(id: user_id)
 	end
 
+	def new 
+		@post = Post.new 
+		city_id = params[:id]
+		@city = City.find_by(id: city_id)
+	end
+
+	def create 
+		# @post = Post.new(city_id:params[:post][:city_id], user_id:params[:post][:user_id])
+		@post = Post.new(post_params)
+		@post.city_id = params[:id]
+		@post.user_id = current_user.id
+		if @post.save 
+			redirect_to show_post_path(@post)
+		else 
+			redirect_to new_post_path
+		end
+	end
+
 	def edit 
         post_id = params[:id]
         @post = Post.find_by(id: post_id)
@@ -26,25 +44,6 @@ class PostController < ApplicationController
             @post = Post.find_by(id: post_id)
         end 
     end
-    
-	def new 
-		@post = Post.new 
-		city_id = params[:city_id]
-		@city = City.find_by(id: city_id)
-	end
-
-	def create 
-		if current_user.id === params[:post][:user_id]
-			city = City.find(params[:city_id])
-			new_post = Post.new(post_params)
-			if  new_post.save
-				City.posts << new_post 
-				redirect_to city_path 
-			else
-			end 
-				
-		end
-	end
 
 	def destroy
 		post_id = params[:id]
