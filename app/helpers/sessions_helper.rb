@@ -9,6 +9,10 @@ module SessionsHelper
 		@current_user ||= User.find_by_id(session[:user_id])
 	end
 
+	def authorize
+		redirect_to '/login' unless current_user
+	end
+
 	def logout
     	@current_user = session[:user_id] = nil
     end
