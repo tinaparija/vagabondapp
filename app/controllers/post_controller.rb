@@ -21,7 +21,6 @@ class PostController < ApplicationController
 	end
 
 	def create 
-		# @post = Post.new(city_id:params[:post][:city_id], user_id:params[:post][:user_id])
 		if @current_user
 			@post = Post.new(post_params)
 			@post.city_id = params[:id]
