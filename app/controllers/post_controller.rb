@@ -31,8 +31,8 @@ class PostController < ApplicationController
 				redirect_to new_post_path
 			end
 		else
-			flash[:notice] = "Please sign in"
 			redirect_to login(@user)
+			flash[:notice] = "Please sign in"
 		end
 	end
 
@@ -41,8 +41,8 @@ class PostController < ApplicationController
 	        post_id = params[:id]
 	        @post = Post.find_by(id: post_id)
 	    else
-	    	flash[:notice] = "Please sign in"
 	    	redirect_to login(@user)
+	    	flash[:notice] = "Please sign in"
 	    end
     end 
 
@@ -57,8 +57,8 @@ class PostController < ApplicationController
 	            @post = Post.find_by(id: post_id)
 	        end
 	    else
-	    	flash[:notice] = "Please sign in"
 	    	redirect_to login(@user)
+	    	flash[:notice] = "Please sign in"
 	    end	 
     end
 
@@ -72,8 +72,8 @@ class PostController < ApplicationController
 			user = User.find_by(id: user_id)
 			redirect_to cities_path
 		else
-			flash[:notice] = "Please sign in"
 	    	redirect_to login(@user)
+	    	flash[:notice] = "Please sign in"
 	    end
 	end
 

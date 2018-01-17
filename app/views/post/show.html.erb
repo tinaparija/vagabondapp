@@ -13,6 +13,7 @@
 	<h2><%= @post.title.capitalize %></h2><br>
 	<p><%= @post.content %></p><br>  
 	<p>By <%= @user.first_name %></p>
+	<p><%= time_ago_in_words(@post.created_at) %> ago</p>
 	<article id="ed_post">
 	<%= link_to "Edit Post", edit_post_path(@post) %>
 	</article>
