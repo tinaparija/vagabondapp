@@ -13,8 +13,16 @@
 <div class="floatright">
   <h2 >Posts</h2><br>
 	<p><% @user.posts.each do |post| %></p>
-	<p>Title: <%= link_to post.title.capitalize, show_post_path(post) %></p>
-  <p>Content: <%= link_to post.content.capitalize, show_post_path(post) %></p>  
+	<p id="post-title">Title: <%= link_to post.title.capitalize, show_post_path(post) %></p>
+  <p id="post-content">Content: <%= link_to post.content.capitalize, show_post_path(post) %></p>
+  <section id ="post-buttons">
+    <article id="ed_post">
+    <%= link_to "Edit Post", edit_post_path(post) %>
+    </article>
+    <article id="del_post">
+    <%= link_to "Delete Post",  show_post_path(post), method: :delete, data: {confirm: "Are you sure?"} %>
+    </article>
+  </section>
 	<% end %>
   	
   </div>
