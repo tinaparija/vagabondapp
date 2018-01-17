@@ -19,40 +19,43 @@ class PostController < ApplicationController
 
 	def create 
 		# @post = Post.new(city_id:params[:post][:city_id], user_id:params[:post][:user_id])
-		@post = Post.new(post_params)
-		@post.city_id = params[:id]
-		@post.user_id = current_user.id
-		if @post.save 
-			redirect_to show_post_path(@post)
-		else 
-			redirect_to new_post_path
-		end
+			@post = Post.new(post_params)
+			@post.city_id = params[:id]
+			@post.user_id = current_user.id
+			if @post.save 
+				redirect_to show_post_path(@post)
+			else 
+				redirect_to new_post_path
+			end
 	end
 
-	def edit 
-        post_id = params[:id]
-        @post = Post.find_by(id: post_id)
+	def edit
+		
+	        post_id = params[:id]
+	        @post = Post.find_by(id: post_id)
     end 
 
     def update 
-        post_id = params[:id]
-        @post = Post.find_by(id: post_id)
-        if @post.update(post_params)
-            redirect_to show_post_path(@post)
-        else 
-            @post_id = params[:id]
-            @post = Post.find_by(id: post_id)
-        end 
+	        post_id = params[:id]
+	        @post = Post.find_by(id: post_id)
+	        if @post.update(post_params)
+	            redirect_to show_post_path(@post)
+	        else 
+	            @post_id = params[:id]
+	            @post = Post.find_by(id: post_id)
+	        end
     end
 
 	def destroy
-		post_id = params[:id]
-		post = Post.find_by(id: post_id)
-		post.delete
 		
-		user_id = params[:user_id]
-		user = User.find_by(id: user_id)
-		redirect_to cities_path
+			post_id = params[:id]
+			post = Post.find_by(id: post_id)
+			post.delete
+			
+			user_id = params[:user_id]
+			user = User.find_by(id: user_id)
+			redirect_to cities_path
+
 	end
 
 	def post_params
