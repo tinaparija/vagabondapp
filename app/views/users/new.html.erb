@@ -1,23 +1,23 @@
-Sign Up
 
+<div id="auth_form">
 <%= form_for @user do |f| %>
   <div>
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+    <%= f.text_field :first_name, placeholder: "First Name", :class => 'form-control' %>
   </div>
   <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+    <%= f.text_field :last_name, placeholder: "Last Name", :class => 'form-control'%>
   </div>
   <div>
-    <%= f.text_field :home_city, placeholder: "Current City" %>
+    <%= f.text_field :home_city, placeholder: "Current City",:class => 'form-control'%>
   </div>
   <div>
-    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.text_field :email, placeholder: "Email", :class => 'form-control'%>
   </div>
   <div>
-    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.password_field :password, placeholder: "Password",:class => 'form-control' %>
   </div>
    <div>
-    <%= f.text_field :image, placeholder: "Image" %>
+    <%= f.text_field :image, placeholder: "Image URL", :class => 'form-control'%>
   </div>
-  <%= f.submit "Sign Up" %>
-<% end %>
+  <%= f.submit 'Sign Up', :class => 'btn btn-primary' %>
+  <% end %>
