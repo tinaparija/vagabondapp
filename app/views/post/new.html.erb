@@ -1,27 +1,13 @@
-<<<<<<< HEAD
-<div>
+<div id ="new_post_form">
 	<%= form_for @post, url: create_posts_path do |f| %>
 	  <div>
-	    <%= f.text_field :title, placeholder: "Title" %>
+	    <%= f.text_field :title, placeholder: "Title", :class => 'form-control'%>
 	  </div>
 	  <div>
-	    <%= f.text_field :content, placeholder: "Content" %>
+	    <%= f.text_field :content, placeholder: "Content",:class => 'form-control textfield' %>
 	  </div><br>
 	  <div>
-	  <%= f.button :submit, data: { enable_with: true } %>
+	  <%= f.button :submit, data: { enable_with: true }, :class => 'btn btn-primary' %>
 	</div>
 	<% end %>
-=======
-
-<div id ="new_post_form">
-<%= form_for [@city, @post], url: create_posts_path do |f| %>
-  <div>
-    <%= f.text_field :title, placeholder: "Title", :class => 'form-control' %>
-  </div>
-  <div>
-    <%= f.text_field :content, placeholder: "Content", :class => 'form-control textfield'%>
-  </div><br>
-  <%= f.submit "Add Post", :class => 'btn btn-primary' %>
-<% end %>
->>>>>>> 61b030c31e50e3c5a824ecdcca034c0c7c553e82
 </div>
