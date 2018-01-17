@@ -1,24 +1,23 @@
-# README
+# Vagabond
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Vagabond is an application that allows users to post and share reviews about affordable tourist cities in the United States. 
 
-Things you may want to cover:
+# Technologies Used 
 
-* Ruby version
+* Ruby on Rails 
+* Bootstrap 
+* HTML/CSS 
 
-* System dependencies
+# Existing Features 
 
-* Configuration
+* Create and edit comprehensive profile page with user posts 
+* Abillity to view all posts by all users
+* Ability to add, edit and delete user's own posts to cities 
+* Authentication and authorization based on user login status 
 
-* Database creation
+# Planned Features 
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ability to add new cities 
+* Leave comments on posts 
+* Error messages 
+* Make user profile more robust: ex. visits map, numbered posts, etc. 
