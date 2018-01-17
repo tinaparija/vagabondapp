@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	validates :email, presence: true, uniqueness: true
+
 	has_many :posts, dependent: :destroy
 	has_many :cities, through: :posts
 
@@ -8,6 +10,5 @@ class User < ApplicationRecord
     @user = User.find_by({email: params[:email]})
     @user ? @user.authenticate(params[:password]) : false
   	end
-
 
 end
