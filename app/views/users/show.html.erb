@@ -1,9 +1,8 @@
-
 <div class="floatleft">
-
 <ul>
   <h2>Profile</h2><br>
-  <li>Name: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></li>
+  <img id="profile_image" src="<%= @user.image %>"></img><br>
+  <br><li>Name: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></li>
   <li>Current City: <%= @user.home_city.capitalize %></li>
   <li>Date Joined: <%= @user.created_at.strftime("%d %b. %Y") %></li><br>
   <li id ="edit_user"><%= link_to "Edit this user", edit_user_path(@user) %></li>
