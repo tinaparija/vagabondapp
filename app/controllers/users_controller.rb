@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 			login (@user)
 			redirect_to @user
 		else
-			flash[:notice] = "incorrect password fields"
+			flash[:notice] = "minimum password length 6 characters"
 			redirect_to new_user_path
 		end
 	end 
