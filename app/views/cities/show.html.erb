@@ -1,9 +1,11 @@
 <h3 class ="show_heading"><%=@city.name %></h3>
  <% if current_user %>
+ 	  <article id="new-post-button">
       <%= link_to "New Post", new_post_path %>
+  	  </article>
     <% end %>
     
-<br><img src="<%= @city.image %>"></img><br>
+<br><img src="<%= @city.image %>"></img><br><br>
 
 <h4 >Posts</h4>
 	<% @city.posts.each do |post| %>

@@ -12,8 +12,12 @@
 <div class="floatright">
 	<h2><%= @post.title.capitalize %></h2><br>
 	<p><%= @post.content %></p><br>  
-	<p>By <%= @user.first_name %></p>  	
+	<p>By <%= @user.first_name %></p>
+	<article id="ed_post">
 	<%= link_to "Edit Post", edit_post_path(@post) %>
+	</article>
+	<article id="del_post">
 	<%= link_to "Delete Post",  show_post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+	</article>
 	
 </div>

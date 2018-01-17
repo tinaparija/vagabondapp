@@ -4,8 +4,6 @@
 
 
 
-
-
 .floatleft {
    float:left;
    width: 30%;
@@ -21,20 +19,17 @@ body {
 text-align:left;
 padding-left:50px;
 float: right;
-   height: 400px;
-   width: 70%;
-}
-
-#edit_post a{
-    color: blue;
-    font-weight: bold; 
-}
-
-
-#delete_post a{
-    color: red;
-    font-weight: bold; 
+height: 400px;
+width: 70%;
 }
 
 
 
+.textfield{
+  margin-top:10px;
+  height: 200px;
+}
+
+#new_post_form{
+  margin-top:30px; 
+}
