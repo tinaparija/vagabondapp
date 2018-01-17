@@ -20,7 +20,8 @@ users_data = []
     last_name: last,
     home_city: FFaker::Address.city, 
     email: "#{first[0]}_#{last}@example.com".downcase,
-    password: "abc123"
+    password: "abc123", 
+    image: "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fn7WzKaAEn0c%2Fmaxresdefault.jpg&f=1"
   }
 end
 users = User.create(users_data)

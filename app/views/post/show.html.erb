@@ -14,8 +14,6 @@
 	<p><%= @post.content %></p><br>  
 	<p>By <%= @user.first_name %></p>  	
 	<%= link_to "Edit Post", edit_post_path(@post) %>
-
-	<%= link_to "Delete post", {:controller => "educationals", :action => "index4", :id => params[:id]}, :popup => ['Modelo Educacional', 'height=300,width=600'] %>
-	
+	<%= link_to "Delete Post",  show_post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
 	
 </div>
