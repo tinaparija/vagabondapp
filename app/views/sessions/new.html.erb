@@ -1,5 +1,6 @@
-Login
 
+
+<div id="auth_form">
 <%= form_for @user, url: "/sessions", method: "post" do |f| %>
   <div>
     <%= f.text_field :email, placeholder: "Email" %>
@@ -7,5 +8,6 @@ Login
   <div>
     <%= f.password_field :password, placeholder: "Password" %>
   </div>
-  <%= f.submit "Log In" %>
+  <%= f.submit 'Login', :class => 'btn btn-primary'%>
 <% end %>
+</div>
