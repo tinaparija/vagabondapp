@@ -21,60 +21,49 @@ class PostController < ApplicationController
 	end
 
 	def create 
-		if @current_user
-			@post = Post.new(post_params)
-			@post.city_id = params[:id]
-			@post.user_id = current_user.id
-			if @post.save 
-				redirect_to show_post_path(@post)
-			else 
-				redirect_to new_post_path
-			end
-		else
-			redirect_to login(@user)
-			flash[:notice] = "Please sign in"
+		@post = Post.new(post_params)
+		@post.city_id = params[:id]
+		@post.user_id = current_user.id
+		if @post.save 
+			redirect_to show_post_path(@post)
+		else 
+			redirect_to new_post_path
 		end
 	end
 
 	def edit
-		if @current_user
-	        post_id = params[:id]
-	        @post = Post.find_by(id: post_id)
-	    else
-	    	redirect_to login(@user)
-	    	flash[:notice] = "Please sign in"
+		post_id = params[:id]
+	    @post = Post.find_by(id: post_id)
+		if current_user.id != @post.user_id
+	       redirect_to login_path
+	       flash[:notice] = "Please sign in"
 	    end
     end 
 
     def update
-    	if @current_user 
-	        post_id = params[:id]
-	        @post = Post.find_by(id: post_id)
-	        if @post.update(post_params)
-	            redirect_to show_post_path(@post)
-	        else 
-	            @post_id = params[:id]
-	            @post = Post.find_by(id: post_id)
-	        end
-	    else
-	    	redirect_to login(@user)
-	    	flash[:notice] = "Please sign in"
-	    end	 
+        post_id = params[:id]
+        @post = Post.find_by(id: post_id)
+        if current_user.id != @post.user_id
+	       redirect_to login_path
+	       flash[:notice] = "Please sign in"
+        else 
+           @post.update(post_params)
+           redirect_to show_post_path(@post)
+        end
     end
 
 	def destroy
-		if @current_user
-			post_id = params[:id]
-			post = Post.find_by(id: post_id)
+		post_id = params[:id]
+		post = Post.find_by(id: post_id)
+		user_id = params[:user_id]
+		user = User.find_by(id: user_id)
+		if current_user.id != post.user_id
+			redirect_to login_path
+    		flash[:notice] = "Please sign in"
+    	else
 			post.delete
-			
-			user_id = params[:user_id]
-			user = User.find_by(id: user_id)
 			redirect_to cities_path
-		else
-	    	redirect_to login(@user)
-	    	flash[:notice] = "Please sign in"
-	    end
+		end
 	end
 
 	def post_params

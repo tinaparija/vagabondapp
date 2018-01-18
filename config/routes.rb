@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 	delete '/post/:id', to: 'post#destroy', as: 'delete_post'
 
 
-	get '/login', to: 'sessions#new'
+	get '/login', to: 'sessions#new', as: 'login'
 	get '/logout', to: 'sessions#destroy'
 	post '/sessions', to: 'sessions#create'
 
